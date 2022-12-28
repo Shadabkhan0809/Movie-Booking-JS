@@ -4,8 +4,45 @@
     box-sizing: border-box;
 }
 
+nav{
+    display: flex;
+    color: white;
+    padding: 12px 16px;
+    background-color: cadetblue;
+    justify-content: space-between;
+}
+#loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
 
+nav ul{
+    display: flex;
+    justify-content: space-evenly;
+list-style-type: none;
 
+}
+
+.movie-holder{
+    
+    display: grid;
+    grid: auto auto / auto auto auto auto auto;
+    grid-gap: 10px;
+   
+    padding: 10px;
+}
+
+.movie-img-wrapper{
+    background-size: cover !important;
+    width: auto;
+    height: 250px;
+}
+
+.movie-link{
+   width: 100px;
+}
 
 
 
