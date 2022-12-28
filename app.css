@@ -22,6 +22,7 @@ nav ul{
     display: flex;
     justify-content: space-evenly;
 list-style-type: none;
+padding: 0px 50px;
 
 }
 
@@ -44,7 +45,29 @@ list-style-type: none;
    width: 100px;
 }
 
+#booker-grid-holder{
+    display: grid;
+    grid-template-columns: repeat(2,200px);
+    grid-gap: 100px;
+}
 
+#booker-grid-holder>div{
+    display: grid;
+    grid-template-columns: repeat(3,60px);
+    grid-gap: 10px;
+}
+.booking-grid{
+    border: 1px solid black;
+    height: 60px;
+   
+}
+.unavailable-seat{
+    background-color: red;
+}
+
+.available-seat{
+    background-color:green;
+}
 
 .d-none{
     display: none;

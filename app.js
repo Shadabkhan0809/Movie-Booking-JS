@@ -19,11 +19,15 @@ fetchMovieList()
     })
     movieHolder.innerHTML = moviesContent
     document.querySelector("main").appendChild(movieHolder)
-    const moviesItem=document.getElementsByClassName("movie-link")
-    for (let i=0;i<moviesItem;i++){
-        moviesItem[i].addEventListener("click",handleMovieBox)
+
+    const moviesItems=document.getElementsByClassName("movie- link")
+    for (let i=0;i<moviesItems.length;i++){
+        moviesItems[i].addEventListener("click",(e)=> {
+            handleMovieBoxClick(e,moviesItems[i].href)
+        
+        })
     }
-    console.log(response);
+   
     
 
 })
@@ -32,7 +36,47 @@ fetchMovieList()
 })
 
 
-const handleMovieBox=(e)=>{
-    e.preventDefoult()
-  console.log(e);
+const handleMovieBoxClick= async (e,link)=>{
+    e.preventDefault()
+  //console.log(e.target);
+  console.log(link);
+
+  let setMovieName=link.replace("http://127.0.0.1:5500/", " ") 
+  console.log(setMovieName)
+
+  let response = await fetchMovieAvailability(setMovieName)
+  console.log(response);
+  let seats= new Array(24).fill(1)
+  response.forEach(item=>{
+    seats[item]=0;
+  })
+
+  document.querySelector(".v-none").classList.toggle("v-none")
+  const bookingholder=document.getElementById("booker-grid-holder")
+  let box1=document.createElement("div")
+  for(let i=1;i<=12;i++){
+    let seat =document.createElement("div")
+    
+    seat.style.border="2px solid black"
+    seat.classList.add("booking-grid")
+    seat.id="booking-grid"+i
+    box1.appendChild(seat)
+
+  }
+
+  let box2=document.createElement("div")
+  for(let i=13;i<=24;i++){
+    let seat =document.createElement("div")
+    seat.style.border="2px solid black"
+    seat.classList.add("booking-grid")
+    seat.id="booking-grid"+i
+    box2.appendChild(seat)
+
+  }
+
+ bookingholder.appendChild(box1)
+ bookingholder.appendChild(box2)
+ 
+ 
+  
 }
