@@ -46,10 +46,10 @@ const handleMovieBoxClick= async (e,link)=>{
 
   let response = await fetchMovieAvailability(setMovieName)
   console.log(response);
-  let seats= new Array(24).fill(1)
-  response.forEach(item=>{
-    seats[item]=0;
-  })
+  // let seats= new Array(24).fill(1)
+  // response.forEach(item=>{
+  //   seats[item]=0;
+  // })
 
   document.querySelector(".v-none").classList.toggle("v-none")
   const bookingholder=document.getElementById("booker-grid-holder")
