@@ -41,10 +41,10 @@ const handleMovieBoxClick= async (e,link)=>{
   //console.log(e.target);
   console.log(link);
 
-  let setMovieName=link.replace("http://127.0.0.1:5500/", " ") 
-  console.log(setMovieName)
+//   let setMovieName=link.replace("http://127.0.0.1:5500/", " ") 
+//   console.log(setMovieName)
 
-  let response = await fetchMovieAvailability(setMovieName)
+  let response = await fetchMovieAvailability("21 Jump Street")
   console.log(response);
   // let seats= new Array(24).fill(1)
   // response.forEach(item=>{
